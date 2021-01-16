@@ -3,7 +3,7 @@ import './Video.css'
 import VideoFooter from "./VideoFooter";
 import VideoSidebar from "./VideoSidebar";
 
-function Video() {
+function Video({url, channel, description, song, likes, shares, messages}) {
     const videoRef = useRef(null);
     const [playing,setPlaying] = useState(false);
 
@@ -24,11 +24,11 @@ function Video() {
                   loop
                   ref={videoRef}
                   onClick={handleVideoPress}
-               src="https://www.youtube.com/watch?v=D5ykNC3ABEo">
+               src={url}>
 
            </video>
-            <VideoFooter/>
-            <VideoSidebar/>
+            <VideoFooter channel={channel} description={description} song={song}/>
+            <VideoSidebar likes={likes} shares={shares} messages={messages}/>
         </div>
     );
 }
