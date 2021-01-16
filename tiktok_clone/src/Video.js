@@ -1,5 +1,7 @@
 import React, {useRef, useState} from 'react';
 import './Video.css'
+import VideoFooter from "./VideoFooter";
+import VideoSidebar from "./VideoSidebar";
 
 function Video() {
     const videoRef = useRef(null);
@@ -12,7 +14,7 @@ function Video() {
             setPlaying(false);
         }else {
             videoRef.current.play();
-            setPlaying(true);   
+            setPlaying(true);
         }
     }
 
@@ -22,9 +24,11 @@ function Video() {
                   loop
                   ref={videoRef}
                   onClick={handleVideoPress}
-               src="">
+               src="https://www.youtube.com/watch?v=D5ykNC3ABEo">
 
            </video>
+            <VideoFooter/>
+            <VideoSidebar/>
         </div>
     );
 }
