@@ -17,6 +17,11 @@ mongoose.connect(connection_url,{
 
 //middlewares
 app.use(express.json());
+app.use((req,res,next) =>{
+    res.setHeaders('Access-Control-Allow-Origin','*'),
+        res.setHeaders('Access-Control-Allow-Headers','*'),
+        next()
+})
 
 // end points
 app.get("/", (req,res) => res.status(200).send("hello world"));
@@ -30,7 +35,19 @@ app.post("/v2/posts", (req,res) =>
         if(err){
             res.status(500).send(err)
         }else {
-            res.status(210).send(data)
+            res.status(201).send(data)
+        }
+    })
+});
+
+app.get("/v2/posts", (req,res) =>
+{
+
+    Videos.find((err,data)=>{
+        if(err){
+            res.status(500).send(err)
+        }else {
+            res.status(200).send(data)
         }
     })
 });
