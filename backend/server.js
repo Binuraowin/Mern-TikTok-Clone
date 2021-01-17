@@ -26,7 +26,7 @@ app.use((req,res,next) =>{
 // end points
 app.get("/", (req,res) => res.status(200).send("hello world"));
 
-app.get("/v1/posts", (req,res) => res.status(200).send(Data));
+
 
 app.post("/v2/posts", (req,res) =>
 {
